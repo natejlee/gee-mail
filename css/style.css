@@ -1,0 +1,42 @@
+
+
+
+.container {
+  text-align: center;
+  width: 1500px;
+  margin: auto;
+  padding-top: 10px;
+
+}
+h1 {
+  text-align: center;
+  margin: auto;
+
+}
+
+.theDateCol{
+  display: inline-block;
+  width: 30%;
+  padding-top: 20px;
+  background-color: red;
+
+
+}
+.theSenderCol{
+  display: inline-block;
+  width: 30%;
+  background-color: green;
+}
+
+.theSubjectCol{
+  display: inline-block;
+  width: 30%;
+  background-color: orange;
+}
+
+.theBodyCol{
+  width: 50%;
+
+
+
+}

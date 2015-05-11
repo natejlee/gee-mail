@@ -3,16 +3,99 @@
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
     <script>
-      window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
+
+
+			window.onload = function(){
+				var newEmail = getNewMessage();
+				var emails = window.geemails;
+
+				var totalEmail = emails.length;
+				var element = document.getElementById("header");
+
+
+				for(i = 0; i < emails.length; i++) {
+					var initialEmails = getEmail(emails[i]);
+
+					}
+
+					function getEmail(email) {
+						var dateCol = document.createElement("div");
+						dateCol.className = "theDateCol";
+						dateCol.innerHTML = email["date"];
+						element.appendChild(dateCol);
+
+						var senderCol = document.createElement("div");
+						senderCol.className = "theSenderCol";
+						senderCol.innerHTML = email["sender"];
+						element.appendChild(senderCol);
+
+						var subjectCol = document.createElement("div");
+						subjectCol.className = "theSubjectCol";
+						subjectCol.innerHTML = email["subject"];
+						element.appendChild(subjectCol);
+
+						var messageCol = document.createElement("div");
+						messageCol.setAttribute("class","theBodyCol");
+						messageCol.innerHTML = email["body"];
+						messageCol.style.display = "none";
+						element.appendChild(messageCol);
+
+						dateCol.addEventListener("click", function() {
+							var fromDate = this.getElementsByClassName("theBodyCol")[0];
+							console.log("Clicked on Date");
+							fromDate.style.display = "block";
+
+							console.log("Clicked on Date");
+
+						});
+
+						senderCol.addEventListener("click", function() {
+							var fromSender = this.getElementsByClassName("theBodyCol");
+
+							fromSender[0].style.display = "block";
+
+							console.log("clicked on sender");
+
+						});
+
+						subjectCol.addEventListener("click", function() {
+							var fromSubject = this.getElementsByClassName("theBodyCol");
+
+							fromSubject[0].style.display = "block";
+
+							console.log("clicked on subject");
+
+						});
+
+						document.getElementById("count").innerHTML = totalEmail;
+
+					}
+
+					function newEmails() {
+						totalEmail++;
+						document.getElementById("count").innerHTML = totalEmail;
+
+						var newMessage = getNewMessage();
+						getEmail(newMessage);
+
+						window.geemails.push(newMessage);
+
+
+					}
+					setInterval(newEmails, 5000);
+
+				};
+
+
     </script>
 	</head>
 	<body>
 		<div class="container" id="main">
-			Small changes!
-		</div>
+			<h1>GEE-MAIL (<span id = "count"></span>)</h1>
+
+				<div id = "header">
+
+				</div>
+			</div>
 	</body>
 </html>
