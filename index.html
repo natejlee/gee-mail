@@ -19,53 +19,38 @@
 					}
 
 					function getEmail(email) {
+						var setEmail = document.createElement("div");
+						setEmail.className = "theSet"
 						var dateCol = document.createElement("div");
 						dateCol.className = "theDateCol";
-						dateCol.innerHTML = email["date"];
-						element.appendChild(dateCol);
+						dateCol.innerHTML = "Date: " + email["date"];
+						setEmail.appendChild(dateCol);
 
 						var senderCol = document.createElement("div");
 						senderCol.className = "theSenderCol";
-						senderCol.innerHTML = email["sender"];
-						element.appendChild(senderCol);
+						senderCol.innerHTML = "From: " + email["sender"];
+						setEmail.appendChild(senderCol);
 
 						var subjectCol = document.createElement("div");
 						subjectCol.className = "theSubjectCol";
-						subjectCol.innerHTML = email["subject"];
-						element.appendChild(subjectCol);
+						subjectCol.innerHTML = "Subject: " + email["subject"];
+						setEmail.appendChild(subjectCol);
 
 						var messageCol = document.createElement("div");
 						messageCol.setAttribute("class","theBodyCol");
 						messageCol.innerHTML = email["body"];
 						messageCol.style.display = "none";
-						element.appendChild(messageCol);
+						setEmail.appendChild(messageCol);
 
-						dateCol.addEventListener("click", function() {
-							var fromDate = this.getElementsByClassName("theBodyCol")[0];
-							console.log("Clicked on Date");
-							fromDate.style.display = "block";
+						element.appendChild(setEmail);
 
-							console.log("Clicked on Date");
+						setEmail.addEventListener("click", function() {
+							var fromDate = this.getElementsByClassName("theBodyCol");
 
-						});
+							fromDate[0].style.display = "block";
 
-						senderCol.addEventListener("click", function() {
-							var fromSender = this.getElementsByClassName("theBodyCol");
+					});
 
-							fromSender[0].style.display = "block";
-
-							console.log("clicked on sender");
-
-						});
-
-						subjectCol.addEventListener("click", function() {
-							var fromSubject = this.getElementsByClassName("theBodyCol");
-
-							fromSubject[0].style.display = "block";
-
-							console.log("clicked on subject");
-
-						});
 
 						document.getElementById("count").innerHTML = totalEmail;
 
@@ -78,11 +63,11 @@
 						var newMessage = getNewMessage();
 						getEmail(newMessage);
 
-						window.geemails.push(newMessage);
+						window.geemails.unshift(newMessage);
 
 
 					}
-					setInterval(newEmails, 5000);
+					setInterval(newEmails, 10000);
 
 				};
 

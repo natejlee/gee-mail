@@ -3,7 +3,7 @@
 
 .container {
   text-align: center;
-  width: 1500px;
+  width: 1000px;
   margin: auto;
   padding-top: 10px;
 
@@ -13,30 +13,35 @@ h1 {
   margin: auto;
 
 }
+.theSet{
+  padding: 10px;
 
+  border-bottom: 1px solid black;
+
+
+}
 .theDateCol{
   display: inline-block;
-  width: 30%;
-  padding-top: 20px;
-  background-color: red;
+  width: 40%;
+
+
 
 
 }
 .theSenderCol{
   display: inline-block;
-  width: 30%;
-  background-color: green;
+  width: 20%;
+
 }
 
 .theSubjectCol{
   display: inline-block;
   width: 30%;
-  background-color: orange;
+
 }
-
-.theBodyCol{
-  width: 50%;
-
-
+.theBodyCol {
+  padding: 10px;
+  text-align: center;
+  width: auto;
 
 }
